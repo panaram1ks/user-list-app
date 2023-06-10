@@ -1,0 +1,21 @@
+.stForm {
+    border-radius: 30px;
+    box-shadow: 10px 5px 5px rgb(177, 163, 163);
+    width: 50%;
+    background-color: bisque;
+    align-items: center;
+    align-items: center;
+}
+
+.input {
+    margin: 10px;
+    height: 40px;
+}
+
+.button {
+    background-color: blue;
+    font-size: 5ch;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+}
