@@ -2,6 +2,7 @@ import Card from "../UI/Card";
 import styles from "./CreateUser.module.css";
 import Button from "../UI/Button";
 import { useState } from "react";
+import ErrorModel from "../UI/ErrorModel";
 
 const CreateUser = (props) => {
   const [inputName, setInputName] = useState("");
@@ -17,7 +18,7 @@ const CreateUser = (props) => {
     }
 
     console.log(inputName, inputAge);
-    props.onCreateUser(inputName, inputAge)
+    props.onCreateUser(inputName, inputAge);
 
     setInputName("");
     setInputAge("");
@@ -32,26 +33,32 @@ const CreateUser = (props) => {
   };
 
   return (
-    <Card className={styles.input}>
-      <form onSubmit={createUserHandler}>
-        <label>Name</label>
-        <input
-          id="name"
-          type="text"
-          onChange={nameChangeHandler}
-          value={inputName}
-        />
-        <label>Age</label>
-        <input
-          id="age"
-          type="number"
-          onChange={ageChangeHandler}
-          value={inputAge}
-        />
+    <div>
+      <ErrorModel
+        title="Error heppend"
+        message="Someting went wrong"
+      ></ErrorModel>
+      <Card className={styles.input}>
+        <form onSubmit={createUserHandler}>
+          <label>Name</label>
+          <input
+            id="name"
+            type="text"
+            onChange={nameChangeHandler}
+            value={inputName}
+          />
+          <label>Age</label>
+          <input
+            id="age"
+            type="number"
+            onChange={ageChangeHandler}
+            value={inputAge}
+          />
 
-        <Button type="submit">Add user</Button>
-      </form>
-    </Card>
+          <Button type="submit">Add user</Button>
+        </form>
+      </Card>
+    </div>
   );
 };
 
