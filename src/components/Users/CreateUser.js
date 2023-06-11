@@ -7,13 +7,19 @@ import ErrorModel from "../UI/ErrorModel";
 const CreateUser = (props) => {
   const [inputName, setInputName] = useState("");
   const [inputAge, setInputAge] = useState("");
+  const [error, setError] = useState();
 
   const createUserHandler = (event) => {
     event.preventDefault();
     if (inputName.trim().length === 0 || inputAge.trim().length === 0) {
+      setError({ title: "Wrong input", message: "Fields can't be empty" });
       return;
     }
     if (+inputAge < 1) {
+      setError({
+        title: "Wrong age",
+        message: "Age should be greater than zero",
+      });
       return;
     }
 
@@ -32,12 +38,20 @@ const CreateUser = (props) => {
     setInputAge(event.target.value);
   };
 
+  const errorHandler = () => {
+    setError(false);
+  };
+
   return (
     <div>
-      <ErrorModel
-        title="Error heppend"
-        message="Someting went wrong"
-      ></ErrorModel>
+      {error && (
+        <ErrorModel
+          onCloseModal={errorHandler}
+          title={error.title}
+          message={error.message}
+        ></ErrorModel>
+      )}
+
       <Card className={styles.input}>
         <form onSubmit={createUserHandler}>
           <label>Name</label>

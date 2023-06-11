@@ -3,9 +3,12 @@ import Button from "./Button";
 import styles from "./ErrorModal.module.css";
 
 const ErrorModel = (props) => {
-  return (
+  
+  
+  
+    return (
     <div>
-      <div className={styles.backdrop}></div>
+      <div className={styles.backdrop} onClick={props.onCloseModal}></div>
       <Card className={styles.modal}>
         <header className={styles.header}>
           <h2>{props.title}</h2>
@@ -14,7 +17,7 @@ const ErrorModel = (props) => {
           <p>{props.message}</p>
         </div>
         <footer className={styles.footer}>
-          <Button>Close</Button>
+          <Button onClick={props.onCloseModal}>Close</Button>
         </footer>
       </Card>
     </div>
