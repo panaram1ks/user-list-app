@@ -17,6 +17,7 @@ const CreateUser = (props) => {
     }
 
     console.log(inputName, inputAge);
+    props.onCreateUser(inputName, inputAge)
 
     setInputName("");
     setInputAge("");
