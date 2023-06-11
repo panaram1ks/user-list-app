@@ -1,10 +1,9 @@
-import './App.css';
-import Form from './Form/Form';
+import CreateUser from "./components/Users/CreateUser";
 
 function App() {
   return (
-    <div className="App">  
-      <Form></Form>
+    <div>
+      <CreateUser></CreateUser>
     </div>
   );
 }
